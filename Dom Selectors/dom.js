@@ -1,10 +1,21 @@
-console.log("test");
-
 var button = document.querySelector("button");
-var div = document.querySelector(".button-bg");
-
+//var isPurple = false;
 button.addEventListener("click", function(){
-	div.style.width = "200px";
-	div.style.height = "50px";
-	div.style.background = "purple";
-})
+	document.body.classList.toggle("purple");
+});
+
+
+
+
+
+
+// button.addEventListener("click", function(){
+// 	if(isPurple){
+// 		document.body.style.background = "white";
+// 		isPurple = false;
+// 		}
+// 	else{
+// 		document.body.style.background = "purple";
+// 		isPurple = true;
+// 	}
+// });	
