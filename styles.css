@@ -1,0 +1,15 @@
+table {
+	width: 50%;
+	margin: 0 auto;
+}
+
+thead {
+	font-size: 45px;
+	text-align: center;
+}
+
+td {
+	width:25px;
+	height: 25px;
+	border-right: 5px solid black;
+}

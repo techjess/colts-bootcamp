@@ -1,0 +1,140 @@
+html {
+	background-color: #000000;
+	overflow: scroll;
+	background: url(jpeg/bg.jpg) no-repeat center center fixed; 
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+
+}
+#header{
+	
+	width: 100%;
+	height: 100px;
+	margin: 0 auto;
+	background: rgba(121,122,121,0.03);
+	font-family: 'Lora', serif;
+	/*font-family: 'Lobster', cursive;*/
+	letter-spacing: .13em;
+	font-size: 1.25em;
+	position: fixed;
+	border-bottom: 1px solid white;
+	
+}
+
+.logo{
+	width: 20%;
+	height: inherit;
+	padding-top: 0px;
+	padding-left: 10px;
+	float: left;
+	margin: 0 auto;
+	opacity: none;
+}
+
+.logo h4{
+	width: 100%;
+	height: inherit;
+	margin: 0 auto;
+	padding-top: 35px;
+	padding-left: 15px;
+	font-size: 1em;
+	color: white;
+	opacity: none;
+	
+}
+
+.menu{
+	margin-left: 75px;
+	margin-top: 35px;
+
+}
+
+.menu ul {
+	width: inherit;
+	
+	list-style-type: none;
+	margin: 0 auto;
+	
+	padding-right: 20px;
+	
+	
+	float:right;
+}
+
+.menu ul li  {
+	display: inline;
+	float: left;
+	padding-left: 10px;
+	padding-right: 10px;
+	margin: 2px, 0px, 2px, 0px;
+	text-align: center;
+	text-decoration: none;
+	color: white;
+}
+
+
+.menu ul li a{
+	display: block;
+	text-decoration: none;
+	color: white;
+} 
+
+.menu ul li a:hover {
+	
+	background-color: white;
+	color: black;
+}
+
+
+@media screen and (max-width: 866px){
+	.menu ul li {
+		padding-left: 0px;
+		font-size: 19px;
+		letter-spacing: 1px;
+	}
+
+}
+@media screen and (max-width: 746px) {
+	.menu ul:not(last-child) {
+		display: none;
+	}
+	.icon {
+		display: block;
+		float: right;
+	}
+}
+
+
+
+
+
+
+/*Beginning of Body Div*/
+
+
+
+
+#body {
+	padding-top: 175px;
+}
+
+h1{
+	color: white;
+	text-align: center;
+	margin-top: 100px;
+}
+
+#body p {
+	text-align: center;
+	color: white;
+	font-size: 26px;
+	margin-right: 25px;
+	margin-left: 25px;
+	
+}
+
+
+
+
