@@ -1,7 +1,7 @@
-var express = require('express'),
-  app = express(),
-  mongoose = require('mongoose'),
-  bodyParser = require('body-parser');
+var express     = require('express'),
+    app         = express(),
+    mongoose    = require('mongoose'),
+    bodyParser  = require('body-parser');
 
   mongoose.connect("mongodb://localhost/yelp_camp");
 
@@ -11,14 +11,16 @@ app.set('view engine', 'ejs');
 //schema setup
 var campgroundSchema = new mongoose.Schema({
   name: String,
-  image: String
+  image: String,
+  description: String
 });
 
 var Campground = mongoose.model("Campground", campgroundSchema);
 
 // Campground.create({
 //   name: 'Mountains Goats Rest',
-//   image: "https://pixabay.com/get/e83db7082af3043ed1584d05fb1d4e97e07ee3d21cac104497f9c67eafe4b1be_340.jpg"
+//   image: "https://pixabay.com/get/ea36b70928f21c22d2524518b7444795ea76e5d004b0144295f0c578a6e4b1_340.jpg",
+//   description: 'this is a huge waterfall granit hill'
 // }, function(err, campground){
 //   if(err){
 //     console.log(err);
@@ -38,7 +40,7 @@ Campground.find({}, function(err, allCampgrounds){
   if(err){
     console.log(err);
   }else{
-    res.render('campgrounds',{camp:allCampgrounds})
+    res.render('index',{camp:allCampgrounds})
   }
 })
   //res.render("campgrounds", {camp:campgrounds});
@@ -49,8 +51,9 @@ app.post('/campgrounds', function(req, res){
   //get data from form and add to campgrounds array
   var name = req.body.name;
   var image = req.body.image;
+  var desc = req.body.description
   var newCampground = {
-    name:name, image:image
+    name:name, image:image, description:desc
   }
 
   //create a new campground and save to a new database
@@ -70,6 +73,20 @@ app.post('/campgrounds', function(req, res){
 
 app.get("/campgrounds/new", function(req, res){
   res.render("new.ejs");
+})
+//SHOW
+app.get('/campgrounds/:id',function(req, res){
+  //find the campground with provided
+  Campground.findById(req.params.id, function(err, foundCampground){
+    if(err){
+      console.log(err);
+    }else{
+      //render show template with that campground
+      res.render('show', {campground:foundCampground});
+    }
+  })
+
+
 })
 
 app.listen(3000, function(){
