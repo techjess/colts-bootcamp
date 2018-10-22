@@ -1,52 +1,21 @@
-var express = require('express');
+var express = require("express");
 var app = express();
 
-var bodyParser = require('body-parser');
+app.set("view engine", "ejs");
 
-app.use(bodyParser.urlencoded({extended:true}));
-app.set('view engine', 'ejs');
-
-var campgrounds= [
-  {name: 'Salmon Creek', image: "https://pixabay.com/get/ea36b70928f21c22d2524518b7444795ea76e5d004b014439cf7c671aee9b3_340.jpg"},
-  {name: 'MOuntains Goats Rest', image: "https://pixabay.com/get/e83db7082af3043ed1584d05fb1d4e97e07ee3d21cac104497f9c67eafe4b1be_340.jpg"},
-  {name: 'Granite Creek', image: "https://pixabay.com/get/e03db50f2af41c22d2524518b7444795ea76e5d004b014439cf7c671aee9b3_340.jpg"},
-  {name: 'Salmon Creek', image: "https://pixabay.com/get/ea36b70928f21c22d2524518b7444795ea76e5d004b014439cf7c671aee9b3_340.jpg"},
-  {name: 'MOuntains Goats Rest', image: "https://pixabay.com/get/e83db7082af3043ed1584d05fb1d4e97e07ee3d21cac104497f9c67eafe4b1be_340.jpg"},
-  {name: 'Granite Creek', image: "https://pixabay.com/get/e03db50f2af41c22d2524518b7444795ea76e5d004b014439cf7c671aee9b3_340.jpg"},
-  {name: 'Salmon Creek', image: "https://pixabay.com/get/ea36b70928f21c22d2524518b7444795ea76e5d004b014439cf7c671aee9b3_340.jpg"},
-  {name: 'MOuntains Goats Rest', image: "https://pixabay.com/get/e83db7082af3043ed1584d05fb1d4e97e07ee3d21cac104497f9c67eafe4b1be_340.jpg"},
-  {name: 'Granite Creek', image: "https://pixabay.com/get/e03db50f2af41c22d2524518b7444795ea76e5d004b014439cf7c671aee9b3_340.jpg"},
-];
-
-app.get('/', function(req,res){
+app.get("/", function(req, res){
   res.render("landing");
-})
-
-app.get("/campgrounds", function(req, res){
-
-
-  res.render("campgrounds", {camp:campgrounds});
 });
 
-app.post('/campgrounds', function(req, res){
-
-  var name = req.body.name;
-  var image = req.body.image;
-  var newCampground = {
-    name:name, image:image
-  }
-  campgrounds.push(newCampground);
-  //get data from form and add to campgrounds array
-
-  //redirect back to campgrounds page
-  res.redirect('/campgrounds');
-
-});
-
-app.get("/campgrounds/new", function(req, res){
-  res.render("new.ejs");
+app.get("/campgrounds", function(req,res){
+  var campgrounds = [
+    {name: "Salmon Creek", image: "https://pixabay.com/get/ea36b70928f21c22d2524518b7444795ea76e5d004b0144595f2c579afeeb1_340.jpg"},
+    {name: "Hesitation Way", image: "https://pixabay.com/get/e837b1072af4003ed1584d05fb1d4e97e07ee3d21cac104491f0c37da7e5b6bc_340.jpg"},
+    {name: "Mountain Goats rest", image: "https://pixabay.com/get/e03db50f2af41c22d2524518b7444795ea76e5d004b0144595f2c579afeeb1_340.jpg"}
+  ]
+  res.render("campgrounds", {camps:campgrounds});
 })
 
 app.listen(3000, function(){
-  console.log('YelpCamp Server has started');
-})
+  console.log('The YelpCamp server has started!')
+});

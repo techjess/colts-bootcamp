@@ -1,16 +1,15 @@
 {
   "name": "v1",
   "version": "1.0.0",
-  "description": "YelpCamp V1",
+  "description": "yelpcamp v1",
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Jesse Garcia",
+  "author": "jesse garcia",
   "license": "ISC",
   "dependencies": {
-    "body-parser": "^1.18.3",
     "ejs": "^2.6.1",
-    "express": "^4.16.3"
+    "express": "^4.16.4"
   }
 }
